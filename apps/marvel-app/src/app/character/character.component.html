@@ -1,0 +1,9 @@
+<div class="cart">
+  <img
+    [routerLink]="['/', 'character', character.id]"
+    class="img"
+    src="{{ character.thumbnail.path }}.{{ character.thumbnail.extension }}"
+  />
+  <p>{{ character.name }}</p>
+  <button (click)="addToFavoritesList()">add favorites</button>
+</div>

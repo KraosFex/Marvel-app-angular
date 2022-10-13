@@ -1,0 +1,10 @@
+.title {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+developer-characters-list {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+}

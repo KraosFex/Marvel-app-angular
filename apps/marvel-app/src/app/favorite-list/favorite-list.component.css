@@ -1,0 +1,10 @@
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.img-favorite-hero {
+  max-width: 50px;
+  max-height: 50px;
+}
