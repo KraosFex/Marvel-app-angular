@@ -9,20 +9,22 @@ import { AddToFavoritesService } from '../add-to-favorites.service';
   styleUrls: ['./characters-list.component.css'],
 })
 export class CharactersListComponent implements OnInit {
-  constructor(private characterSVC: RestService) {}
+  constructor(
+    private characterSVC: RestService,
+    private notElement: AddToFavoritesService
+  ) {}
+
   public allCharacters: Observable<any> = this.characterSVC.getAllCharacters();
+  public notCharacters: Array<any> = [];
 
   ngOnInit(): void {
     this.getCharacters();
+    this.notElement.favoritesTrigger.subscribe((data) => {
+      this.notCharacters.push(data);
+    });
   }
 
   getCharacters() {
     this.allCharacters;
   }
-
-  // addFavorites() {
-  //   this.addToFavorites.favoritesTrigger.emit({
-  //     data: this.dataInput,
-  //   });
-  // }
 }

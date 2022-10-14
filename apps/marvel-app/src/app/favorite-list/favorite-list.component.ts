@@ -14,8 +14,14 @@ export class FavoriteListComponent implements OnInit {
 
   ngOnInit(): void {
     this.addToFavorites.favoritesTrigger.subscribe((data) => {
-      this.favoriteList.push(data);
-      console.log(data);
+      if (this.favoriteList.length === 0) {
+        this.favoriteList.push(data);
+        return;
+      }
+      const elemento = this.favoriteList.find(
+        (e) => e.data.id === data.data.id
+      );
+      if (!elemento) this.favoriteList.push(data);
     });
   }
 
