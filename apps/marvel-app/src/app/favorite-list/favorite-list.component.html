@@ -1,12 +1,12 @@
 <ul *ngFor="let favorite of favoriteList">
   <li>
-    <button (click)="remove(favorite?.data.id)">X</button>
+    <button (click)="remove(favorite?.data)">X</button>
     <img
       class="img-favorite-hero"
-      src="{{ favorite?.data.thumbnail.path }}.{{
-        favorite?.data.thumbnail.extension
+      src="{{ favorite?.data.character.thumbnail.path }}.{{
+        favorite?.data.character.thumbnail.extension
       }}"
     />
-    {{ favorite?.data.name }}
+    {{ favorite?.data.character.name }}
   </li>
 </ul>

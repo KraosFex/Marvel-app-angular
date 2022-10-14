@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RestService } from '../rest.service';
 import { Observable } from 'rxjs';
-import { AddToFavoritesService } from '../add-to-favorites.service';
 
 @Component({
   selector: 'developer-characters-list',
@@ -9,22 +8,10 @@ import { AddToFavoritesService } from '../add-to-favorites.service';
   styleUrls: ['./characters-list.component.css'],
 })
 export class CharactersListComponent implements OnInit {
-  constructor(
-    private characterSVC: RestService,
-    private notElement: AddToFavoritesService
-  ) {}
+  constructor(private characterSVC: RestService) {}
 
   public allCharacters: Observable<any> = this.characterSVC.getAllCharacters();
-  public notCharacters: Array<any> = [];
+  public characters: any = this.allCharacters;
 
-  ngOnInit(): void {
-    this.getCharacters();
-    this.notElement.favoritesTrigger.subscribe((data) => {
-      this.notCharacters.push(data);
-    });
-  }
-
-  getCharacters() {
-    this.allCharacters;
-  }
+  ngOnInit(): void {}
 }

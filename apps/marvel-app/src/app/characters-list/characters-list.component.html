@@ -1,3 +1,8 @@
-<div *ngFor="let character of allCharacters | async">
-  <developer-character [character]="character"></developer-character>
+<div *ngFor="let character of characters | async">
+  <developer-character
+    [character]="{
+      character: character,
+      favorite: false
+    }"
+  ></developer-character>
 </div>

@@ -15,6 +15,9 @@ export class CharacterComponent implements OnInit {
   }
 
   addToFavoritesList(): void {
-    this.addFavorites.favoritesTrigger.emit({ data: this.character });
+    this.addFavorites.favoritesTrigger.emit({
+      data: this.character,
+    });
+    // this.character.favorite = true;
   }
 }

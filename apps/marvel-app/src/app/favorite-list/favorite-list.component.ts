@@ -19,15 +19,16 @@ export class FavoriteListComponent implements OnInit {
         return;
       }
       const elemento = this.favoriteList.find(
-        (e) => e.data.id === data.data.id
+        (e) => e.data.character.id === data.data.character.id
       );
       if (!elemento) this.favoriteList.push(data);
+      this.addToFavorites.favoritesTrigger.emit(this.favoriteList)
     });
   }
 
-  remove(id: string): void {
+  remove(data: any): void {
     this.removeElement = this.favoriteList.filter(
-      (hero: any) => hero.data.id !== id
+      (hero: any) => hero.data.character.id !== data.character.id
     );
     this.favoriteList = this.removeElement;
   }
