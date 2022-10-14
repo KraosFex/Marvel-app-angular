@@ -11,13 +11,17 @@ export class CharacterComponent implements OnInit {
   constructor(private addFavorites: AddToFavoritesService) {}
 
   ngOnInit(): void {
-    this.character;
+    this.addFavorites.favoritesTrigger.subscribe((id) => {
+      if (id === this.character.character.id) {
+        this.character.favorite = false;
+      }
+    });
   }
 
   addToFavoritesList(): void {
     this.addFavorites.favoritesTrigger.emit({
       data: this.character,
     });
-    // this.character.favorite = true;
+    this.character.favorite = true;
   }
 }

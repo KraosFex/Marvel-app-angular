@@ -22,7 +22,6 @@ export class FavoriteListComponent implements OnInit {
         (e) => e.data.character.id === data.data.character.id
       );
       if (!elemento) this.favoriteList.push(data);
-      this.addToFavorites.favoritesTrigger.emit(this.favoriteList)
     });
   }
 
@@ -30,6 +29,7 @@ export class FavoriteListComponent implements OnInit {
     this.removeElement = this.favoriteList.filter(
       (hero: any) => hero.data.character.id !== data.character.id
     );
+    this.addToFavorites.favoritesTrigger.emit(data.character.id);
     this.favoriteList = this.removeElement;
   }
 }

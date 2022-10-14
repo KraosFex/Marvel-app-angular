@@ -1,4 +1,4 @@
-<div class="cart">
+<div class="cart" *ngIf="character?.favorite === false">
   <img
     [routerLink]="['/', 'character', character.character.id]"
     class="img"

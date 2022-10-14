@@ -11,7 +11,6 @@ export class CharactersListComponent implements OnInit {
   constructor(private characterSVC: RestService) {}
 
   public allCharacters: Observable<any> = this.characterSVC.getAllCharacters();
-  public characters: any = this.allCharacters;
 
   ngOnInit(): void {}
 }
